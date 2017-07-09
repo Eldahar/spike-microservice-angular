@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Http, Response} from '@angular/http';
+import {Http, Response, RequestOptions} from '@angular/http';
 import 'rxjs/add/operator/map';
 
 @Injectable()
@@ -8,7 +8,11 @@ export class TestAPI {
   }
 
   register() {
-    return this.http.post(`https://mordred.hu/register`, 'name=teszt')
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/X-www-form-urlencoded');
+
+    let options = new RequestOptions({ headers: headers });
+    return this.http.post(`https://mordred.hu/register`, 'name=teszt', options)
       .map((res: Response) => res.json());
   }
 }
