@@ -17,7 +17,7 @@ export class AppComponent {
 
   test() {
     for (var i = 0; i < 1000; i++) {
-      this.apiService.register().subscribe(data => this.first = data);
+      setTimeout(this.apiService.register().subscribe(data => this.first = data), 100);
     }
   }
 }
