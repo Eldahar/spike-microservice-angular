@@ -8,7 +8,7 @@ export class TestAPI {
   }
 
   register() {
-    return this.http.post(`https://mordred.hu/register`, {"name": "teszt"})
+    return this.http.post(`https://mordred.hu/register`, 'name=teszt')
       .map((res: Response) => res.json());
   }
 }
